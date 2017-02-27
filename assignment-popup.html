@@ -1,0 +1,47 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+                <h2 translate>APP.POPUP.ASSIGNMENT</h2>
+            </div>
+            <div class="modal-body">
+                <div class="detail-group clearfix">
+                    <div class="col-xs-12">
+						<div class="form-group">
+							<label for="groupAccessApp">{{'APP.POPUP.GROUPS-ACCESS-ASSIGN' | translate}}</label>
+							<ul class="simple-list">
+								<li ng-repeat="gAss in currentAppDefinition.definition.groupsAccess">{{gAss.name}} <div class="actions"><a ng-click="removeGroup(gAss)"><i class="icon icon-remove"></i></a></div></li>
+							</ul>
+							<label for="groupAccessApp">{{'APP.POPUP.GROUPS-ACCESS' | translate}}</label>
+							<input ng-disabled="model.loading" type="text" class="form-control"  id="groupAccessApp" ng-model="filter.groupsAccess" ng-keyup="findGroup()">
+							<!--<input type="hidden" class="form-control" ng-model="currentAppDefinition.definition.groupsAccess">-->
+							<ul class="simple-list">
+								<li ng-repeat="gFilt in filter.groups.value.data" ng-click="selectGroup(gFilt)">{{gFilt.name}}</li>
+							</ul>
+						</div>
+						<hr/>
+					</div>
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label for="groupAccessApp">{{'APP.POPUP.USERS-ACCESS-ASSIGN' | translate}}</label>
+							<ul class="simple-list">
+								<li ng-repeat="uAss in currentAppDefinition.definition.usersAccess">{{uAss.fullName}} <div class="actions"><a ng-click="removeUser(uAss)"><i class="icon icon-remove"></i></a></div></li>
+							</ul>
+							<label for="userAccessApp">{{'APP.POPUP.USERS-ACCESS' | translate}}</label>
+							<input ng-disabled="model.loading" type="text" class="form-control"	id="userAccessApp" ng-model="filter.usersAccess" ng-keyup="findUser()">
+							<!--<input type="hidden" class="form-control" ng-model="currentAppDefinition.definition.usersAccess">-->
+							<ul class="simple-list">
+								<li ng-repeat="uFilt in filter.users.value.data" ng-click="selectUser(uFilt)">{{uFilt.fullName}}</li>
+							</ul>
+						</div>						
+					</div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+                <!--<button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>-->
+            </div>
+        </div>
+    </div>
