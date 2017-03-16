@@ -98,7 +98,7 @@ public class FlowableAppDefinitionService {
         AppModel appModel = repositoryService.getAppResourceModel(deployment.getId());
         resultAppDef.setTheme(appModel.getTheme());
         resultAppDef.setIcon(appModel.getIcon());
-		appModel.getModelEditorJson();
+		//appModel.getModelEditorJson();
         return resultAppDef;
     }
 }
